@@ -51,5 +51,6 @@ export default {
 </script>
 <style lang="scss">
 //@import url(); 引入公共css类
+@import '@/assets/css/public/layout.scss';
 @import '@/assets/css/public/header/index.scss';
 </style>

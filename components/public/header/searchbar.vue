@@ -1,5 +1,5 @@
- <!--  -->
- <template>
+<!--  -->
+<template>
   <div class="search-panel">
     <el-row class="m-header-searchbar">
       <el-col :span="3" class="left">
@@ -7,29 +7,22 @@
       </el-col>
       <el-col :span="15" class="center">
         <div class="wrapper">
-          <el-input v-model="search" placeholder="搜索商家或地点" @focus="focus" @blur="blur" @input="input" />
+          <el-input v-model="search" placeholder="搜索商家或地点" @focus="focus" @blur="blur"  @input="input"/>
           <button class="el-button el-button--primary"><i class="el-icon-search" /></button>
           <dl v-if="isHotPlace" class="hotPlace">
             <dt>热门搜索</dt>
-            <!-- <dd v-for="(item, idx) in $store.state.home.hotPlace.slice(0, 5)" :key="idx">
-              <a :href="'/products?keyword=' + encodeURIComponent(item.name)">{{ item.name }}</a>
-            </dd> -->
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
-            <dd>火锅</dd>
+            <dd v-for="(item, idx) in hotPlace" :key="idx">
+              <a :href="'/products?keyword=' + encodeURIComponent(item.name)">{{ item }}</a>
+            </dd>
           </dl>
           <dl v-if="isSearchList" class="searchList">
-            <!-- <dd v-for="(item, idx) in searchList" :key="idx">
-              <a :href="'/products?keyword=' + encodeURIComponent(item.name)">{{ item.name }}</a>
-            </dd> -->
-            
+            <dd v-for="(item, idx) in searchList" :key="idx">
+              <a :href="'/products?keyword=' + encodeURIComponent(item.name)">{{ item }}</a>
+            </dd>
           </dl>
         </div>
         <p class="suggest">
-          <a v-for="(item, idx) in $store.state.home.hotPlace.slice(0, 5)" :key="idx" :href="'/products?keyword=' + encodeURIComponent(item.name)">{{ item.name }}</a>
+          <!-- <a v-for="(item, idx) in $store.state.home.hotPlace.slice(0, 5)" :key="idx" :href="'/products?keyword=' + encodeURIComponent(item.name)">{{ item.name }}</a> -->
         </p>
         <ul class="nav">
           <li><nuxt-link to="/" class="takeout">美团外卖</nuxt-link></li>
@@ -68,36 +61,51 @@ export default {
   components: {},
   data() {
     //这里存放数据
- return {
- 
- };
- },
- //监听属性 类似于data概念
- computed: {},
- //监控data中的数据变化
- watch: {},
- //方法集合
- methods: {
- 
- },
- //生命周期 - 创建完成（可以访问当前this实例）
- created() {
- 
- },
- //生命周期 - 挂载完成（可以访问DOM元素）
- mounted() {
- 
- },
- beforeCreate() {}, //生命周期 - 创建之前
- beforeMount() {}, //生命周期 - 挂载之前
- beforeUpdate() {}, //生命周期 - 更新之前
- updated() {}, //生命周期 - 更新之后
- beforeDestroy() {}, //生命周期 - 销毁之前
- destroyed() {}, //生命周期 - 销毁完成
- activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
- }
- </script>
- <style lang='scss' scoped>
- //@import url(); 引入公共css类
- 
- </style>
+    return {
+      search: '',
+      isFocus: false,
+      hotPlace: ['火锅', '火锅', '火锅', '火锅', '火锅', '火锅'],
+      searchList: ['鼓浪屿', '鼓浪屿', '鼓浪屿', '鼓浪屿'],
+    }
+  },
+  //监听属性 类似于data概念
+  computed: {
+    isHotPlace: function() {
+      return this.isFocus && !this.search
+    },
+    isSearchList: function() {
+      return this.isFocus && this.search
+    },
+  },
+  //监控data中的数据变化
+  watch: {},
+  //方法集合
+  methods: {
+    focus() {
+      this.isFocus = true
+    },
+    blur() {
+      setTimeout(() => {
+        this.isFocus = false
+      }, 200)
+    },
+    input(){
+        console.log('input')
+    }
+  },
+  //生命周期 - 创建完成（可以访问当前this实例）
+  created() {},
+  //生命周期 - 挂载完成（可以访问DOM元素）
+  mounted() {},
+  beforeCreate() {}, //生命周期 - 创建之前
+  beforeMount() {}, //生命周期 - 挂载之前
+  beforeUpdate() {}, //生命周期 - 更新之前
+  updated() {}, //生命周期 - 更新之后
+  beforeDestroy() {}, //生命周期 - 销毁之前
+  destroyed() {}, //生命周期 - 销毁完成
+  activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
+}
+</script>
+<style lang="scss">
+//@import url(); 引入公共css类
+</style>

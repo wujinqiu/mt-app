@@ -71,7 +71,7 @@
       float: left;
       background: #fff;
       transition: background-color .5s;
-      height: 314px;
+      height: 324px;
 
       .el-card {
         width: 100%;
@@ -89,6 +89,7 @@
         .el-card__body {
           .cbody {
             list-style: none;
+            padding: 0 10px 10px 10px;
 
             .title {
               font-size: 16px;
@@ -121,7 +122,7 @@
             .price {
               height: 27px;
               overflow: hidden;
-              margin-bottom: 10px;
+              // margin-bottom: 10px;
               font-size: 14px;
               color: #BE9E4D;
               font-weight: 500;
