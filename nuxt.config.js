@@ -56,7 +56,11 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+
+    'cookie-universal-nuxt',
+     // With options
+     ['cookie-universal-nuxt', { alias: 'cookiz' }],
   ],
   /*
    ** Axios module configuration
