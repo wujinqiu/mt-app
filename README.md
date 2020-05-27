@@ -1,2 +1,2 @@
 # mt-app
-vus+ssr+koa2
+vue+ssr+koa2
