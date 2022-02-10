@@ -30,7 +30,7 @@
     "koa-router": "^7.4.0",
     "lodash": "^4.17.15",
     "mongoose": "^5.9.6",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nodemailer": "^4.6.8",
     "nuxt": "^2.12.1",
     "passport-local": "^1.0.0",
